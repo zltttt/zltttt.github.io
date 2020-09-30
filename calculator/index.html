@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<meta charset="UTF-8">
+	<title>党费计算器</title>
+</head>
+<script type="text/javascript">
+	window.onload = function()
+	{
+		var inp = document.querySelectorAll("input");
+		inp[9].onclick = function(){
+			var ans1=0;
+			var ans2=0;
+			
+			for(var i=0;i<3;i++)
+				ans1+=Number(inp[i].value);
+			for(var i=3;i<9;i++)
+				ans1-=Number(inp[i].value);
+
+			if(ans1<=3000)
+				ans2=ans1*0.005;
+			else if(ans1<=5000)
+				ans2=ans1*0.01;
+			else if(ans1<=10000)
+				ans2=ans1*0.015;
+			else
+				ans2=ans1*0.02;
+
+			alert("收缴基数："+ans1+", 应交党费："+ans2);
+		}
+	}
+
+	function getSum(num1,num2){		//定义自定义函数getSum
+		sum = num1 + num2;			
+		return sum;				//返回num1和num2的和
+	}
+</script>
+<body>
+	简易党费计算器
+	岗位工资：<input type="text" size='3'><br>
+	薪级工资：<input type="text" size='3'><br>
+	基础性绩效：<input type="text" size='3'><br>
+	职业年金：<input type="text" size='3'><br>
+	养老：<input type="text" size='3'><br>
+	失险：<input type="text" size='3'><br>
+	医疗：<input type="text" size='3'><br>
+	扣税：<input type="text" size='3'><br>
+	住房公积金个人缴纳部分：<input type="text" size='3'><br>
+	<input type="button" value="计算">
+</body>
+</html>
